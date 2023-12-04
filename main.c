@@ -99,9 +99,9 @@ int main(void)
   myAccConfigDef.interruptEnable = true;
   LIS3DSH_Init(&hspi1, &myAccConfigDef);
 
-  LIS3DSH_X_calibrate(-1000.0, 980.0);
-  LIS3DSH_Y_calibrate(-1020.0, 1040.0);
-  LIS3DSH_Z_calibrate(-920.0, 1040.0);
+  LIS3DSH_X_calibrate(-1001.0, 980.0);
+  LIS3DSH_Y_calibrate(-1021.0, 1040.0);
+  LIS3DSH_Z_calibrate(-921.0, 1040.0);
 
   tempData = LIS3DSH_GetDataScaled();
   /* USER CODE END 2 */
@@ -114,7 +114,7 @@ int main(void)
 	  myData = LIS3DSH_GetDataScaled();
 	  if(tempData.x != myData.x || tempData.y != myData.y || tempData.z != myData.z) {
 		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_14);
-		  HAL_Delay(500);
+		  HAL_Delay(1000);
 		  tempData = LIS3DSH_GetDataScaled();
 	  }
 
